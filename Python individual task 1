@@ -1,0 +1,17 @@
+print("Welcome to bank Piritta!")
+balance = 0
+
+while True:
+    deposit = int(input("Please enter the amount you want to deposit: "))
+    balance += deposit
+    print(f"Your new balance is: {balance}")
+    
+    user_choice = input("Do you want to make another deposit? (yes/no): ").strip().lower()
+    if user_choice == 'yes':
+        continue
+    elif user_choice == 'no':
+        break
+    else:
+        print("Invalid choice. Please respond with 'yes' or 'no'.")
+
+print(f"Thank you for using bank Piritta. Your total amount deposited is: {balance}")
