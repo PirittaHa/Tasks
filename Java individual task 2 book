@@ -1,0 +1,43 @@
+Main.java
+
+import java.util.Scanner;
+
+public class Main {
+  
+  public static void main(String[] args){
+    Scanner scanner = new Scanner(System.in);
+     Book book = new Book();
+    
+      while (true) {
+        System.out.println("Welcome to the Book App!");
+        System.out.println("1. Add a book");
+        System.out.println("2. Remove a book");
+        System.out.println("3. List all books");
+        System.out.println("4. Exit");
+        System.out.println("Enter your choice: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+          if (choice == 1) {
+            System.out.println("Enter the book name you want to add: ");
+            String bookName = scanner.nextLine();
+            book.addBook(bookName);
+          } else if (choice == 2) {
+            System.out.println("Enter the book name you want to remove: ");
+            String bookName = scanner.nextLine();
+            book.removeBook(bookName);
+          } else if (choice == 3) {
+            book.listBooks();
+          } else if (choice == 4) {
+            System.out.println("Exiting the Book App. Goodbye!");
+            break;
+          } else {
+            System.out.println("Invalid choice. Please try again.");
+          }
+        
+      }
+    { scanner.close();
+    }
+    
+  }
+}
