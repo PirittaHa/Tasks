@@ -38,6 +38,40 @@ public class Main {
       }
     { scanner.close();
     }
-    
+
   }
+}
+
+Book.java
+
+import java.util.ArrayList;
+import java.util.List;
+public class Book {
+  private List<String> books = new ArrayList<String>();
+  
+  public void addBook(String bookName) {
+    this.books.add(bookName);
+    System.out.println("Book " + bookName + " added.");
+  }
+
+  public void removeBook(String bookName) {
+    if (this.books.contains(bookName)) {
+      this.books.remove(bookName);
+      System.out.println("Book " + bookName + " removed.");
+    } else {
+      System.out.println("Book " + bookName + " not found.");
+    }
+  }
+
+    public void listBooks() {
+      if (this.books.isEmpty()) {
+        System.out.println("No books listed.");
+      } else {
+        System.out.println("Books found:");
+        for (String book : this.books) {
+          System.out.println(book);
+        }
+      }
+    }
+  
 }
