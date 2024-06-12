@@ -1,0 +1,47 @@
+class Client:
+    def __init__(self, client_id, name):
+        self.client_id = client_id
+        self.name = name
+        self.transactions = []
+
+    def add_transaction(self, transaction):
+        self.transactions.append(transaction)
+
+class Item:
+    def __init__(self, item_id, name, price):
+        self.item_id = item_id
+        self.name = name
+        self.price = price
+
+class Transaction:
+    def __init__(self, transaction_id, client, items):
+        self.transaction_id = transaction_id
+        self.client = client
+        self.items = items
+
+clients = [
+    Client(1, "Jouni"),
+    Client(2, "Janita"),
+]
+
+items = [
+    Item(1, "Couch", 1200),
+    Item(2, "TV stand", 400),
+    Item(3, "Dining table", 600),
+]
+
+transaction1 = Transaction(1, clients[0], [items[0], items[1], items[2]])
+clients[0].add_transaction(transaction1)
+
+transaction2 = Transaction(2, clients[1], [items[1], items[2]])
+clients[1].add_transaction(transaction2)
+
+print("Clients:")
+for client in clients:
+    print(f"\nClient ID: {client.client_id}, Name: {client.name}")
+    print(f"\nTransactions for Client {client.name}:")
+    for transaction in client.transactions:
+        print(f"  Transaction ID: {transaction.transaction_id}")
+        print("  Items purchased:")
+        for item in transaction.items:
+            print(f"    Item ID: {item.item_id}, Name: {item.name}, Price: €{item.price}")
